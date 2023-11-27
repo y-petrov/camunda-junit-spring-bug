@@ -1,6 +1,6 @@
-#BUG DEMO PROJECT
+# BUG DEMO PROJECT
 
-##The problem
+## The problem
 
 I have camunda 7.18 BPM application wrapped into Spring Boot.
 The application BPM flow has the single service task. The implementation of this task is "Delegate expression".
