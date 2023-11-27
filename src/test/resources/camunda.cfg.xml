@@ -25,7 +25,7 @@
   <bean id="connectProcessEnginePlugin" class="org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin" />
   <bean id="spinProcessEnginePlugin" class="org.camunda.spin.plugin.impl.SpinProcessEnginePlugin" />
 
-  <bean id="doIt" class="com.optum.ibrcp.services.DoIt"/>
-  <bean id="theBean" class="com.optum.ibrcp.spring.Bean01"/>
+  <bean id="serviceDelegate" class="com.optum.ibrcp.services.ServiceDelegate"/>
+  <bean id="someSpringBean" class="com.optum.ibrcp.spring.SomeSpringBean"/>
 
 </beans>

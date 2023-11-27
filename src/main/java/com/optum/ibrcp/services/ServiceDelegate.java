@@ -1,6 +1,6 @@
 package com.optum.ibrcp.services;
 
-import com.optum.ibrcp.spring.Bean01;
+import com.optum.ibrcp.spring.SomeSpringBean;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +10,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Service
-public class DoIt implements JavaDelegate {
+public class ServiceDelegate implements JavaDelegate {
 
-    private static final Logger logger = Logger.getLogger(DoIt.class.getCanonicalName());
+    private static final Logger logger = Logger.getLogger(ServiceDelegate.class.getCanonicalName());
 
     @Autowired
-    private Bean01 theBean;
+    private SomeSpringBean theBean;
 
-    public DoIt() {
+    public ServiceDelegate() {
         logger.info(">> <init()>");
         logger.info("<< <init()>");
         return;
@@ -28,7 +28,7 @@ public class DoIt implements JavaDelegate {
         logger.info(">> execute()");
 
         logger.log(Level.INFO, "theBean=[{0}]", theBean);
-        //theBean.method();
+        theBean.method();
         logger.info("<< execute()");
     }
 }

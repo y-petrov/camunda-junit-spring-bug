@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 import java.util.logging.Logger;
 
 @Component
-public class Bean01 {
+public class SomeSpringBean {
 
-    private static final Logger logger = Logger.getLogger(Bean01.class.getCanonicalName());
+    private static final Logger logger = Logger.getLogger(SomeSpringBean.class.getCanonicalName());
 
-    public Bean01() {
+    public SomeSpringBean() {
         logger.info(">> <init()>");
         logger.info("<< <init()>");
         return;
