@@ -1,6 +1,7 @@
 #BUG DEMO PROJECT
 
 ##The problem
+
 I have camunda 7.18 BPM application wrapped into Spring Boot.
 The application BPM flow has the single service task. The implementation of this task is "Delegate expression".
 The Java Delegate class has the instance varialbe whose value is autowired by Spring.
@@ -12,6 +13,7 @@ When I test the flow using JUnit5 and Camunda's `ProcessEngineExtension`, the th
 ## How to reproduce
 
 ### Clone the repo
+
 Clone the repo by any mean convenient for you
 The following steps assume that your current directory is where you've cloned the project
 
@@ -34,6 +36,7 @@ The following steps assume that your current directory is where you've cloned th
     **Works as designed**
     
 ### Run the BPM flow inside JUnit5 test
+
 1. Just run `mvn test`
 2. The results:
     * The console has  
