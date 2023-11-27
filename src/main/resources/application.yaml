@@ -1,0 +1,7 @@
+camunda.bpm.admin-user:
+  id: demo
+  password: demo
+server:
+  port: 8765
+
+debug: true
