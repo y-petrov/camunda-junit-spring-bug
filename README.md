@@ -33,7 +33,7 @@ The following steps assume that your current directory is where you've cloned th
     ... c.optum.ibrcp.services.ServiceDelegate   : << execute()
    ```
     It means that (a) the bean of the class `SomeSpringBean` has been instantiated and injected into the service delgate object and (b) the bean's method `method()` has been called  
-    **Works as designed**
+    <span style="color:green">**WORKS AS DESIGNED**</span>
     
 ### Run the BPM flow inside JUnit5 test
 
@@ -61,5 +61,5 @@ The following steps assume that your current directory is where you've cloned th
 	    at com.optum.ibrcp.services.ServiceDelegate.execute(ServiceDelegate.java:31)
         ...
     ```  
-    It means that the Spring autowiring did not work and the delegate's instance variable `theBean` stays `null`
-     
+    It means that the Spring autowiring did not work and the delegate's instance variable `theBean` stays `null`  
+    <span style="color:red">**THE BUG**</span>
