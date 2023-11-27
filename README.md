@@ -8,7 +8,7 @@ The Java Delegate class has the instance varialbe whose value is autowired by Sp
 
 When I run the application and create new process instance, the value for the instance variable mentioned above is successfully injected by Spring.
 
-When I test the flow using JUnit5 and Camunda's `ProcessEngineExtension`, the the value for the instance variable mentioned above is NOT injected and stays `null`.
+When I test the flow using JUnit5 and Camunda's `ProcessEngineExtension`, the value for the instance variable mentioned above is NOT injected and stays `null`.
 
 ## How to reproduce
 
@@ -32,35 +32,34 @@ The following steps assume that your current directory is where you've cloned th
     ... com.optum.ibrcp.spring.SomeSpringBean    : << method()  
     ... c.optum.ibrcp.services.ServiceDelegate   : << execute()
    ```
-    It means that (a) the bean of the class `SomeSpringBeat` has been instantiated and injected into the service delgate object and (b) the bean's method `method()` has been called  
+    It means that (a) the bean of the class `SomeSpringBean` has been instantiated and injected into the service delgate object and (b) the bean's method `method()` has been called  
     **Works as designed**
     
 ### Run the BPM flow inside JUnit5 test
 
 1. Just run `mvn test`
-2. The results:
-    * The console has  
+2. The results: the console gets  
     ```
-    Nov 27, 2023 11:01:38 AM com.optum.ibrcp.services.ServiceDelegate <init>  
+    ... com.optum.ibrcp.services.ServiceDelegate <init>  
     INFO: >> <init()>
-    Nov 27, 2023 11:01:38 AM com.optum.ibrcp.services.ServiceDelegate <init>
+    ... com.optum.ibrcp.services.ServiceDelegate <init>
     INFO: << <init()>
-    Nov 27, 2023 11:01:38 AM com.optum.ibrcp.services.ServiceDelegate execute
+    ... com.optum.ibrcp.services.ServiceDelegate execute
     INFO: >> execute()
-    Nov 27, 2023 11:01:38 AM com.optum.ibrcp.services.ServiceDelegate execute
+    ... com.optum.ibrcp.services.ServiceDelegate execute
     INFO: theBean=[null]
-    11:01:38.875 [main] DEBUG org.camunda.bpm.engine.context - ENGINE-16006 BPMN Stack Trace:
+    ... [main] DEBUG org.camunda.bpm.engine.context - ENGINE-16006 BPMN Stack Trace:
 	    service_task (activity-execute, ProcessInstance[4])
 	    service_task, name=Do something
 	      ^
 	      |
 	      StartEvent_1
 
-    11:01:38.876 [main] DEBUG org.camunda.bpm.engine.cmd - ENGINE-13011 closing existing command context
-    11:01:38.877 [main] ERROR org.camunda.bpm.engine.context - ENGINE-16004 Exception while closing command context: Cannot invoke "com.optum.ibrcp.spring.SomeSpringBean.method()" because "this.theBean" is null
+    ... [main] DEBUG org.camunda.bpm.engine.cmd - ENGINE-13011 closing existing command context
+    ... [main] ERROR org.camunda.bpm.engine.context - ENGINE-16004 Exception while closing command context: Cannot invoke "com.optum.ibrcp.spring.SomeSpringBean.method()" because "this.theBean" is null
     java.lang.NullPointerException: Cannot invoke "com.optum.ibrcp.spring.SomeSpringBean.method()" because "this.theBean" is null
 	    at com.optum.ibrcp.services.ServiceDelegate.execute(ServiceDelegate.java:31)
         ...
     ```  
-    It means that the Spring autowiring did not work and the delagate's instance variable `theBean` stays `null`
+    It means that the Spring autowiring did not work and the delegate's instance variable `theBean` stays `null`
      
