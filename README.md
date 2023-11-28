@@ -23,7 +23,7 @@ The following steps assume that your current directory is where you've cloned th
 2. Run it `java -jar ./target/junit5-1.0.0-SNAPSHOT.jar`
 3. After Spring Boot application with Camunda inside is initialized, create new process instance for the process definition key `junit5-process`. You can use any mean that is convenient for you. If you have `curl` in your `PATH`, you can use `./utils/start.sh`
 4. The results:
-    * If you used `./utils/start.sh`, the JSON with the process instance ID will be printed on the console
+    * If you used `./utils/start-process.sh`, the JSON with the process instance ID will be printed on the console
     * The Spring Boot application log has  
     ```
     ... c.optum.ibrcp.services.ServiceDelegate   : >> execute()  

@@ -19,6 +19,7 @@ public class ServiceDelegate implements JavaDelegate {
 
     public ServiceDelegate() {
         logger.info(">> <init()>");
+        logger.log(Level.INFO, "theBean=[{0}]", theBean);
         logger.info("<< <init()>");
         return;
     }
