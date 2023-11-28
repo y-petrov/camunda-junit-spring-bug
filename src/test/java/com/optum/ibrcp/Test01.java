@@ -4,10 +4,10 @@ import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
+import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
 import org.camunda.bpm.extension.junit5.test.ProcessEngineExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
@@ -27,7 +27,10 @@ public class Test01 {
     public void test01() {
         RuntimeService rts = processEngine.getRuntimeService();
         Map<String, Object> vars = new HashMap<>();
+
         ProcessInstance procInst = rts.startProcessInstanceByKey("junit5-process", "key01", vars);
+
+        BpmnAwareTests.assertThat(procInst).isEnded();
 
         return;
     }
